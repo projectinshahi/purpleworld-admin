@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #1b0b3f;
+  --color-indigo: #2a1259;
+  --color-gold: #f0a93a;
+  --color-gold-dark: #c47612;
+  --color-silver: #eef0fa;
+  --color-ink: #1a1a1a;
+  --color-body: #5f6170;
+  --color-line: #e4e6f0;
+  --color-canvas: #f6f7fb;
+  --color-danger: #c62f3b;
+  --color-success: #1d8a5b;
+
+  --font-display: "Sora", sans-serif;
+  --font-sans: "Montserrat", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-canvas font-sans text-ink antialiased;
+  }
+}
