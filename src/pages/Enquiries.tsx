@@ -38,7 +38,7 @@ function EnquiryCard({
   const [error, setError] = useState<string | null>(null);
   const digits = enquiry.phone.replace(/\D/g, "");
 
-  async function update(patch: Partial<Pick<Enquiry, "status" | "adminNotes">>) {
+  async function update(patch: Partial<Pick<Enquiry, "status">>) {
     setSaving(true);
     setError(null);
     try {
@@ -127,23 +127,6 @@ function EnquiryCard({
           <p className="mt-1 text-sm whitespace-pre-line text-ink">{enquiry.notes}</p>
         </div>
       )}
-
-      <div className="flex flex-col gap-1.5">
-        <label htmlFor={`notes-${enquiry._id}`} className="text-xs font-semibold text-body">
-          Team notes (private)
-        </label>
-        <textarea
-          id={`notes-${enquiry._id}`}
-          defaultValue={enquiry.adminNotes}
-          rows={2}
-          placeholder="e.g. Called on 26 Sep, sending quote tomorrow"
-          onBlur={(e) => {
-            const value = e.target.value.trim();
-            if (value !== enquiry.adminNotes) void update({ adminNotes: value });
-          }}
-          className="w-full resize-y rounded-xl border border-line px-3.5 py-2.5 text-sm outline-none focus:border-gold focus:ring-3 focus:ring-gold/20"
-        />
-      </div>
 
       <div className="flex justify-end">
         <Button variant="ghost" onClick={onDelete} className="text-danger">
